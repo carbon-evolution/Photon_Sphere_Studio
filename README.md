@@ -27,26 +27,35 @@ An interactive 3D visualization demonstrating photon geodesics (light ray paths)
 ## ✨ Features
 
 ### 🎨 Realistic Physics Visualization
-- **Funnel-Shaped Spacetime Grid**: 3D grid that warps dramatically toward the black hole center
-- **Extreme Gravitational Curvature**: Schwarzschild-inspired warping showing black hole's intense gravity
-- **Photon Geodesics**: Accurate light ray paths calculated using general relativity equations
-- **Gravitational Lensing**: Shows how light from background objects bends around the black hole
-- **Event Horizon**: Visual representation of the point of no return
+- **Funnel-Shaped Spacetime Grid**: 3D Cartesian grid that warps dramatically downward toward the black hole
+- **Extreme Gravitational Curvature**: Deep gravity well (depth: -15 units at event horizon) showing black hole's intense spacetime warping
+- **Schwarzschild-Inspired Warping**: Warp factor = -6.0 × √(rs/r) for realistic black hole curvature
+- **Photon Geodesics**: Accurate 3D light ray paths calculated using general relativity equations
+- **Event Horizon Visualization**: Black sphere representing the point of no return
+- **Radial Grid Lines**: 20 radial lines emanating from center down the funnel showing gravitational pull
 
 ### 🎮 Interactive Controls
-- **Rotation Slider**: Rotate view 360° around the black hole
-- **Tilt Slider**: Adjust elevation from -90° to 90°
+- **Rotation Slider (Azimuth)**: Rotate view 360° around the black hole
+- **Tilt Slider (Elevation)**: Adjust vertical viewing angle from -90° to 90°
 - **Zoom Slider**: Zoom in for details or out for full view (0.5x - 2.0x)
-- **Play/Pause Buttons**: Control photon animation
-- **Auto-Rotate Toggle**: Enable automatic camera rotation
+- **Play Button**: Start photon trajectory animation
+- **Pause Button**: Stop animation
+- **Auto-Rotate Toggle**: Enable automatic 360° camera rotation
 
 ### 🌈 Color-Coded Physics
-- 🔴 **Red Grid Lines**: Near event horizon - extreme curvature
-- 🟠 **Orange Grid Lines**: Moderate distance - strong warping
-- 🟡 **Yellow Grid Lines**: Medium distance - visible curvature
-- 🔵 **Blue Grid Lines**: Far from black hole - minimal warping
-- 🟡 **Yellow Photon Rays**: Light rays that escape the black hole
-- 🔴 **Red Photon Rays**: Light rays captured by the black hole
+- 🔴 **Red Grid Lines** (r < 4): Near event horizon - extreme curvature
+- 🟠 **Orange Grid Lines** (4 < r < 7): Strong gravitational warping
+- 🟡 **Yellow Grid Lines** (7 < r < 10): Medium distance - visible curvature
+- 🔵 **Blue Grid Lines** (r > 10): Far from black hole - minimal warping
+- 🟡 **Yellow Photon Rays**: Light rays that escape the black hole (deflected paths)
+- 🔴 **Red Photon Rays**: Light rays captured by the black hole (spiral inward)
+- ⚫ **Black Sphere**: Event horizon at Schwarzschild radius
+
+### 🎨 Professional Design
+- **Clean White Background**: Publication-quality visualization
+- **Color-Optimized**: All elements optimized for visibility on white
+- **Smooth Anti-Aliasing**: High-quality rendering
+- **Distance-Based Coloring**: Intuitive color gradient showing gravity strength
 
 ### 💾 Export Options
 - **Animated GIF Output**: Automatically saves animations (no ffmpeg required!)
@@ -129,18 +138,20 @@ Once the 3D visualization window opens:
 
 ### Spacetime Warping
 
-The visualization uses a **Schwarzschild-inspired warping function** to demonstrate how black holes curve spacetime:
+The visualization uses an **enhanced Schwarzschild-inspired warping function** to demonstrate extreme black hole curvature:
 
 ```python
 warp_depth = -6.0 × √(rs / r) × (1 - r/r_max)^0.3
 ```
 
-Where:
-- `rs` = Schwarzschild radius (event horizon)
-- `r` = radial distance from black hole center
-- `r_max` = maximum grid extent
+**At the event horizon**: depth = -15 units (very deep gravity well)
 
-This creates an **extreme gravity well funnel** effect, showing that black holes create much stronger spacetime curvature than planets or stars.
+Where:
+- `rs` = Schwarzschild radius (event horizon, rs = 2M)
+- `r` = radial distance from black hole center  
+- `r_max` = maximum grid extent (PLOT_LIMIT = 15.0)
+
+This creates a **dramatic funnel-shaped gravity well**, showing that black holes create vastly stronger spacetime curvature than planets or stars. The grid warps **downward in the Z-direction**, forming a visible 3D funnel centered on the black hole.
 
 ### Schwarzschild Metric
 
@@ -181,18 +192,21 @@ Where `u = 1/r` and `φ` is the angular coordinate. This is solved using the **R
 
 ### Key Components
 
-#### `Photon_Sphere_3D.py` - 3D Visualization
-- **Warped Grid Generation**: Creates funnel-shaped Cartesian grid
-- **Schwarzschild Warping**: Applies extreme curvature transformation
-- **3D Photon Trajectories**: Calculates geodesics in 3D space
-- **Interactive Controls**: Sliders, buttons, and matplotlib integration
-- **Animation Export**: PillowWriter for GIF output
+#### `Photon_Sphere_3D.py` - 3D Funnel Visualization
+- **Funnel Grid Generation**: Creates warped Cartesian grid (28 lines in X and Y directions)
+- **Extreme Schwarzschild Warping**: Applies dramatic Z-displacement based on radial distance
+- **Radial Grid Lines**: 20 radial lines showing gravitational pull toward center
+- **3D Photon Trajectories**: Calculates geodesics in full 3D space with theta and phi angles
+- **Interactive Controls**: Matplotlib sliders, buttons, and 3D view manipulation
+- **GIF Animation Export**: PillowWriter for animated GIF output (no ffmpeg required!)
+- **Color Gradient System**: Distance-based color mapping (red → orange → yellow → blue)
 
-#### `Photon_Sphere_Studio.py` - 2D Visualization  
-- **2D Geodesic Integration**: Simplified polar coordinate system
-- **Flat Space Comparison**: Shows undeflected light paths
-- **Accretion Disk Lensing**: Weak-field gravitational lensing approximation
-- **Multi-Ray Rendering**: Multiple impact parameters simultaneously
+#### Grid Implementation Details
+- **Grid Type**: Warped Cartesian (X-Y plane warping in Z direction)
+- **Grid Lines**: 28 × 2 = 56 main grid lines + 20 radial lines
+- **Resolution**: 100 points per grid line for smooth curves
+- **Color Zones**: 4 distance-based color regions
+- **Background**: White for publication quality
 
 ### Technologies Used
 
