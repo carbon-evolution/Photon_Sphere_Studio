@@ -17,10 +17,6 @@ An interactive 3D visualization demonstrating photon geodesics (light ray paths)
 
 *Interactive 3D funnel-shaped grid showing extreme spacetime curvature around a black hole. The grid warps dramatically inward near the event horizon, demonstrating how gravity curves spacetime itself.*
 
-### 2D Light Bending Animation
-![2D Light Bending](light_bending_lensing.gif)
-
-*Side-by-side comparison of straight light paths (flat spacetime) versus curved light paths (around black hole), featuring a lensed accretion disk.*
 
 ---
 
@@ -98,17 +94,6 @@ python Photon_Sphere_3D.py
 - Photon geodesic animation
 - Saves as `photon_sphere_3d_full.gif`
 
-### Running the 2D Light Bending Visualization
-
-```bash
-python Photon_Sphere_Studio.py
-```
-
-**Features:**
-- 2D comparison of flat vs curved light paths
-- Lensed accretion disk
-- Multiple impact parameter rays
-- Saves as `light_bending_lensing.gif`
 
 ---
 

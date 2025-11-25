@@ -10,6 +10,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib.widgets import Slider, Button
 import os
+from matplotlib.lines import Line2D
 
 # ----------------------------
 # CONFIG
@@ -109,57 +110,152 @@ def geodesic_rhs(phi, y):
     d2u = 3.0 * M * u**2 - u
     return np.array([up, d2u])
 
-def integrate_ray_3d(b, theta_angle=0, phi_angle=0, phi_min=-4.0, phi_max=4.0, Nphi=1500):
+def integrate_ray_3d(b, theta_angle=0, phi_angle=0, r_start=15.0, Nphi=2000):
     """
-    Calculate a 3D light ray trajectory in any direction.
-    theta_angle: initial polar angle
-    phi_angle: initial azimuthal angle
+    Calculate a 3D light ray trajectory from infinity.
+    b: impact parameter
+    theta_angle: incoming polar angle
+    phi_angle: incoming azimuthal angle
     """
-    phi_grid = np.linspace(phi_min, phi_max, Nphi)
+    # Initial conditions at r_start
+    u0 = 1.0 / r_start
+    
+    # Initial derivative du/dphi based on impact parameter b
+    # (du/dphi)^2 = 1/b^2 - u^2 + 2Mu^3
+    # For incoming ray, u is increasing, so du/dphi is positive
+    val = 1.0/b**2 - u0**2 + 2*M*u0**3
+    if val < 0:
+        val = 0 # Should not happen for large r_start
+    up0 = np.sqrt(val)
+    
+    # Integration range (phi)
+    # We need enough rotation to cover the path
+    phi_span = 6 * np.pi 
+    phi_grid = np.linspace(0, phi_span, Nphi)
     dphi = phi_grid[1] - phi_grid[0]
+    
     y = np.zeros((Nphi, 2))
-    y[0,0] = 1.0 / b
-    y[0,1] = 0.0
+    y[0] = [u0, up0]
+    
     stop_i = Nphi
     
     for i in range(Nphi-1):
         y[i+1] = rk4_step(geodesic_rhs, phi_grid[i], y[i], dphi)
-        if y[i+1,0] <= 0 or 1.0/y[i+1,0] < 1.01*rs:
+        
+        u_curr = y[i+1, 0]
+        
+        # Check for capture (crossing event horizon)
+        if u_curr > 1.0/rs:
             stop_i = i+2
             break
-    
-    u = y[:stop_i,0]
-    r = 1.0 / u
+            
+        # Check for escape (returning to large radius)
+        if u_curr < 1.0/r_start and y[i+1, 1] < 0:
+            stop_i = i+2
+            break
+            
+    u = y[:stop_i, 0]
     phi_vals = phi_grid[:stop_i]
     
-    # Convert to 3D Cartesian coordinates with rotation
-    x_2d = r * np.cos(phi_vals + phi_angle)
-    y_2d = r * np.sin(phi_vals + phi_angle)
+    # Avoid division by zero
+    u[u < 1e-6] = 1e-6
+    r = 1.0 / u
     
-    # Rotate into 3D based on theta_angle
-    x = x_2d * np.cos(theta_angle)
-    y = y_2d
-    z = x_2d * np.sin(theta_angle)
+    # Convert to 3D Cartesian coordinates
+    # We rotate the standard planar orbit (in x-y plane) by theta_angle and phi_angle
+    
+    # Planar orbit in X-Y plane (incoming from -X direction effectively)
+    # Adjust phase so it comes from the desired direction
+    # For visualization, we want rays to come from "outside"
+    
+    # Standard polar to cartesian in orbital plane
+    x_orb = r * np.cos(phi_vals)
+    y_orb = r * np.sin(phi_vals)
+    
+    # Rotate the orbital plane to 3D orientation
+    # This is a simplified rotation for visualization
+    
+    # Rotate around Z by phi_angle
+    # Rotate around Y by theta_angle
+    
+    # Start with ray coming from -X (phi=pi) roughly
+    # We shift phi so it starts at the desired incoming angle
+    
+    # Actually, let's keep it simple:
+    # The ray is in a plane. We just need to orient that plane.
+    # We'll define the plane by a normal vector or just rotate the 2D solution.
+    
+    # Let's treat x_orb, y_orb as being in a plane tilted by theta_angle
+    # and rotated by phi_angle
+    
+    # Coordinate transformation
+    cp = np.cos(phi_angle)
+    sp = np.sin(phi_angle)
+    ct = np.cos(theta_angle)
+    st = np.sin(theta_angle)
+    
+    # Rotate 2D orbit (x_orb, y_orb, 0)
+    # First, orient the incoming asymptote.
+    # In the 2D calculation, the ray starts at angle 0 (or wherever we started phi).
+    # We want the incoming asymptote to be at some angle.
+    # With u' > 0, r decreases.
+    # Let's just rotate the result to align with the requested angles.
+    
+    # Align the "incoming" direction (start of array) with the requested direction
+    # The calculated ray starts at phi=0, r=r_start.
+    # So the starting point is (r_start, 0, 0) in orbital coords.
+    
+    # We want starting point to be at (r_start, theta, phi) in spherical coords?
+    # Or just coming from that direction.
+    
+    # Let's just apply the rotations to the (x_orb, y_orb, 0) points
+    # Rotate around Y axis by theta (tilt the plane)
+    x1 = x_orb * np.cos(theta_angle)
+    y1 = y_orb
+    z1 = x_orb * np.sin(theta_angle)
+    
+    # Rotate around Z axis by phi (azimuth)
+    x = x1 * np.cos(phi_angle) - y1 * np.sin(phi_angle)
+    y = x1 * np.sin(phi_angle) + y1 * np.cos(phi_angle)
+    z = z1
     
     return x, y, z, r
 
 def create_straight_ray_3d(b, theta_angle, phi_angle, length=PLOT_LIMIT*2):
     """Create a straight light ray for comparison (flat spacetime)"""
-    t = np.linspace(-length, length, 300)
+    # Start from distance and go inward
+    t = np.linspace(0, length, 300)
     
-    # Direction vector
-    dir_x = np.cos(phi_angle) * np.cos(theta_angle)
-    dir_y = np.sin(phi_angle)
-    dir_z = np.cos(phi_angle) * np.sin(theta_angle)
+    # Starting point (approximate match to curved ray start)
+    r_start = 15.0
     
-    # Perpendicular offset for impact parameter b
-    offset_x = -np.sin(phi_angle) * b
-    offset_y = np.cos(phi_angle) * b
-    offset_z = 0
+    # Initial position (rotated same as curved ray)
+    x0_orb = r_start
+    y0_orb = 0
     
-    x = offset_x + t * dir_x
-    y = offset_y + t * dir_y
-    z = offset_z + t * dir_z
+    # Rotate start point
+    x0_rot = x0_orb * np.cos(theta_angle)
+    z0 = x0_orb * np.sin(theta_angle)
+    x0 = x0_rot * np.cos(phi_angle)
+    y0 = x0_rot * np.sin(phi_angle)
+    
+    # Direction vector (inward)
+    # In orbital plane, velocity is roughly (-1, 0) plus some y-component for impact parameter?
+    # Actually, for straight line with impact parameter b:
+    # x(t) = r_start - t
+    # y(t) = b
+    
+    x_orb = r_start - t
+    y_orb = np.ones_like(t) * b
+    
+    # Rotate these points
+    x1 = x_orb * np.cos(theta_angle)
+    y1 = y_orb
+    z1 = x_orb * np.sin(theta_angle)
+    
+    x = x1 * np.cos(phi_angle) - y1 * np.sin(phi_angle)
+    y = x1 * np.sin(phi_angle) + y1 * np.cos(phi_angle)
+    z = z1
     
     return x, y, z
 
@@ -169,15 +265,15 @@ def create_straight_ray_3d(b, theta_angle, phi_angle, length=PLOT_LIMIT*2):
 print("Calculating photon trajectories...")
 
 ray_configs = [
-    # Escaping rays (yellow/golden) - larger impact parameter
-    {'b': 10.0, 'theta': 0, 'phi': 0, 'color': '#FFD700', 'type': 'escape'},
-    {'b': 9.0, 'theta': np.pi/6, 'phi': np.pi/4, 'color': '#FFA500', 'type': 'escape'},
-    {'b': 8.5, 'theta': -np.pi/6, 'phi': np.pi/2, 'color': '#FFDB58', 'type': 'escape'},
+    # Escaping rays (yellow/golden) - b > 5.2
+    {'b': 7.0, 'theta': 0, 'phi': 0, 'color': '#FFD700', 'type': 'escape'},
+    {'b': 6.0, 'theta': np.pi/6, 'phi': np.pi/4, 'color': '#FFA500', 'type': 'escape'},
+    {'b': 5.5, 'theta': -np.pi/6, 'phi': np.pi/2, 'color': '#FFDB58', 'type': 'escape'},
     
-    # Captured rays (red/pink) - smaller impact parameter
-    {'b': 5.5, 'theta': np.pi/8, 'phi': -np.pi/6, 'color': '#FF1493', 'type': 'capture'},
-    {'b': 5.0, 'theta': -np.pi/8, 'phi': 3*np.pi/4, 'color': '#FF69B4', 'type': 'capture'},
-    {'b': 4.5, 'theta': np.pi/12, 'phi': np.pi, 'color': '#FF6B9D', 'type': 'capture'},
+    # Captured rays (red/pink) - b < 5.2
+    {'b': 5.0, 'theta': np.pi/8, 'phi': -np.pi/6, 'color': '#FF1493', 'type': 'capture'},
+    {'b': 4.0, 'theta': -np.pi/8, 'phi': 3*np.pi/4, 'color': '#FF69B4', 'type': 'capture'},
+    {'b': 3.0, 'theta': np.pi/12, 'phi': np.pi, 'color': '#FF6B9D', 'type': 'capture'},
 ]
 
 # Generate curved and straight rays
@@ -287,6 +383,14 @@ ax.set_zlabel('Z (Warped Spacetime)', color='black', fontsize=10)
 ax.set_title('Warped Spacetime Funnel: Black Hole Curvature\n' +
             'Grid shows extreme gravitational warping near event horizon', 
             color='black', fontsize=13, weight='bold', pad=20)
+
+# Add Legend
+legend_elements = [
+    Line2D([0], [0], color='#FFD700', lw=2, label='Escaping Photons'),
+    Line2D([0], [0], color='#FF1493', lw=2, label='Captured Photons'),
+    Line2D([0], [0], color='black', marker='o', linestyle='None', markersize=10, label='Event Horizon')
+]
+ax.legend(handles=legend_elements, loc='upper right', fontsize=9, framealpha=0.9)
 
 ax.xaxis.pane.fill = False
 ax.yaxis.pane.fill = False
