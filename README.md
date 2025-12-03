@@ -44,7 +44,9 @@ An interactive 3D visualization demonstrating photon geodesics (light ray paths)
 - 🟡 **Yellow Grid Lines** (7 < r < 10): Medium distance - visible curvature
 - 🔵 **Blue Grid Lines** (r > 10): Far from black hole - minimal warping
 - 🟡 **Yellow Photon Rays**: Light rays that escape the black hole (deflected paths)
+- 🟠 **Orange Photon Rays**: Critical scattering (looping near Photon Sphere)
 - 🔴 **Red Photon Rays**: Light rays captured by the black hole (spiral inward)
+- 🔵 **Cyan Sphere**: Photon Sphere (1.5x Schwarzschild Radius)
 - ⚫ **Black Sphere**: Event horizon at Schwarzschild radius
 
 ### 🎨 Professional Design
