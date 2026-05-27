@@ -40,3 +40,6 @@ Thumbs.db
 *.mp4
 *.avi
 *.mov
+
+# graphify cache
+graphify-out/cache/

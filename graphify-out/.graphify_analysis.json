@@ -1,0 +1,122 @@
+{
+  "communities": {
+    "0": [
+      "photon_sphere_3d_py",
+      "photon_sphere_studio_photon_sphere_3d_animate",
+      "photon_sphere_studio_photon_sphere_3d_geodesic_rhs",
+      "photon_sphere_studio_photon_sphere_3d_init",
+      "photon_sphere_studio_photon_sphere_3d_pause_animation",
+      "photon_sphere_studio_photon_sphere_3d_play_animation",
+      "photon_sphere_studio_photon_sphere_3d_toggle_auto_rotate",
+      "photon_sphere_studio_photon_sphere_3d_update_view",
+      "readme_photon_geodesics",
+      "readme_schwarzschild_metric",
+      "requirements_matplotlib",
+      "requirements_numpy",
+      "requirements_pillow",
+      "requirements_scipy"
+    ],
+    "1": [
+      "photon_sphere_studio_photon_sphere_3d_create_radial_grid_lines_funnel",
+      "photon_sphere_studio_photon_sphere_3d_create_warped_cartesian_grid",
+      "photon_sphere_studio_photon_sphere_3d_rationale_34",
+      "photon_sphere_studio_photon_sphere_3d_rationale_48",
+      "photon_sphere_studio_photon_sphere_3d_rationale_82",
+      "photon_sphere_studio_photon_sphere_3d_spacetime_warp_z"
+    ],
+    "2": [
+      "github_setup_instructions",
+      "photon_sphere_3d_full_gif",
+      "readme_photon_sphere_studio"
+    ],
+    "3": [
+      "photon_sphere_studio_photon_sphere_3d_integrate_ray_3d",
+      "photon_sphere_studio_photon_sphere_3d_rationale_114",
+      "photon_sphere_studio_photon_sphere_3d_rk4_step"
+    ],
+    "4": [
+      "photon_sphere_studio_photon_sphere_3d_create_straight_ray_3d",
+      "photon_sphere_studio_photon_sphere_3d_rationale_225"
+    ],
+    "5": [
+      "photon_sphere_3d_gif"
+    ]
+  },
+  "cohesion": {
+    "0": 0.14285714285714285,
+    "1": 0.3333333333333333,
+    "2": 0.6666666666666666,
+    "3": 0.6666666666666666,
+    "4": 1.0,
+    "5": 1.0
+  },
+  "gods": [
+    {
+      "id": "photon_sphere_studio_photon_sphere_3d_spacetime_warp_z",
+      "label": "spacetime_warp_z()",
+      "degree": 4
+    },
+    {
+      "id": "photon_sphere_studio_photon_sphere_3d_create_warped_cartesian_grid",
+      "label": "create_warped_cartesian_grid()",
+      "degree": 3
+    },
+    {
+      "id": "photon_sphere_studio_photon_sphere_3d_create_radial_grid_lines_funnel",
+      "label": "create_radial_grid_lines_funnel()",
+      "degree": 3
+    },
+    {
+      "id": "photon_sphere_studio_photon_sphere_3d_integrate_ray_3d",
+      "label": "integrate_ray_3d()",
+      "degree": 3
+    },
+    {
+      "id": "readme_photon_sphere_studio",
+      "label": "Photon Sphere Studio",
+      "degree": 3
+    },
+    {
+      "id": "photon_sphere_studio_photon_sphere_3d_rk4_step",
+      "label": "rk4_step()",
+      "degree": 2
+    },
+    {
+      "id": "photon_sphere_studio_photon_sphere_3d_create_straight_ray_3d",
+      "label": "create_straight_ray_3d()",
+      "degree": 2
+    },
+    {
+      "id": "photon_sphere_studio_photon_sphere_3d_rationale_34",
+      "label": "Calculate the Z-displacement (depth) due to spacetime warping.     Creates the",
+      "degree": 1
+    },
+    {
+      "id": "photon_sphere_studio_photon_sphere_3d_rationale_48",
+      "label": "Create a funnel-shaped warped Cartesian grid.     Returns lists of grid lines t",
+      "degree": 1
+    },
+    {
+      "id": "photon_sphere_studio_photon_sphere_3d_rationale_82",
+      "label": "Create radial lines emanating from center down the funnel.",
+      "degree": 1
+    }
+  ],
+  "surprises": [
+    {
+      "source": "GitHub Repository Setup Instructions",
+      "target": "Photon Sphere Studio",
+      "source_files": [
+        "GITHUB_SETUP.md",
+        "README.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 36744,
+    "output": 1252
+  }
+}

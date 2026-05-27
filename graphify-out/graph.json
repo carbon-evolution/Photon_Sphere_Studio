@@ -1,0 +1,625 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "Photon_Sphere_3D.py",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L1",
+      "id": "photon_sphere_3d_py",
+      "community": 0,
+      "norm_label": "photon_sphere_3d.py"
+    },
+    {
+      "label": "spacetime_warp_z()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L33",
+      "id": "photon_sphere_studio_photon_sphere_3d_spacetime_warp_z",
+      "community": 1,
+      "norm_label": "spacetime_warp_z()"
+    },
+    {
+      "label": "create_warped_cartesian_grid()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L47",
+      "id": "photon_sphere_studio_photon_sphere_3d_create_warped_cartesian_grid",
+      "community": 1,
+      "norm_label": "create_warped_cartesian_grid()"
+    },
+    {
+      "label": "create_radial_grid_lines_funnel()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L81",
+      "id": "photon_sphere_studio_photon_sphere_3d_create_radial_grid_lines_funnel",
+      "community": 1,
+      "norm_label": "create_radial_grid_lines_funnel()"
+    },
+    {
+      "label": "rk4_step()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L101",
+      "id": "photon_sphere_studio_photon_sphere_3d_rk4_step",
+      "community": 3,
+      "norm_label": "rk4_step()"
+    },
+    {
+      "label": "geodesic_rhs()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L108",
+      "id": "photon_sphere_studio_photon_sphere_3d_geodesic_rhs",
+      "community": 0,
+      "norm_label": "geodesic_rhs()"
+    },
+    {
+      "label": "integrate_ray_3d()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L113",
+      "id": "photon_sphere_studio_photon_sphere_3d_integrate_ray_3d",
+      "community": 3,
+      "norm_label": "integrate_ray_3d()"
+    },
+    {
+      "label": "create_straight_ray_3d()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L224",
+      "id": "photon_sphere_studio_photon_sphere_3d_create_straight_ray_3d",
+      "community": 4,
+      "norm_label": "create_straight_ray_3d()"
+    },
+    {
+      "label": "update_view()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L424",
+      "id": "photon_sphere_studio_photon_sphere_3d_update_view",
+      "community": 0,
+      "norm_label": "update_view()"
+    },
+    {
+      "label": "play_animation()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L451",
+      "id": "photon_sphere_studio_photon_sphere_3d_play_animation",
+      "community": 0,
+      "norm_label": "play_animation()"
+    },
+    {
+      "label": "pause_animation()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L454",
+      "id": "photon_sphere_studio_photon_sphere_3d_pause_animation",
+      "community": 0,
+      "norm_label": "pause_animation()"
+    },
+    {
+      "label": "toggle_auto_rotate()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L457",
+      "id": "photon_sphere_studio_photon_sphere_3d_toggle_auto_rotate",
+      "community": 0,
+      "norm_label": "toggle_auto_rotate()"
+    },
+    {
+      "label": "init()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L468",
+      "id": "photon_sphere_studio_photon_sphere_3d_init",
+      "community": 0,
+      "norm_label": "init()"
+    },
+    {
+      "label": "animate()",
+      "file_type": "code",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L476",
+      "id": "photon_sphere_studio_photon_sphere_3d_animate",
+      "community": 0,
+      "norm_label": "animate()"
+    },
+    {
+      "label": "Calculate the Z-displacement (depth) due to spacetime warping.     Creates the",
+      "file_type": "rationale",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L34",
+      "id": "photon_sphere_studio_photon_sphere_3d_rationale_34",
+      "community": 1,
+      "norm_label": "calculate the z-displacement (depth) due to spacetime warping.     creates the"
+    },
+    {
+      "label": "Create a funnel-shaped warped Cartesian grid.     Returns lists of grid lines t",
+      "file_type": "rationale",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L48",
+      "id": "photon_sphere_studio_photon_sphere_3d_rationale_48",
+      "community": 1,
+      "norm_label": "create a funnel-shaped warped cartesian grid.     returns lists of grid lines t"
+    },
+    {
+      "label": "Create radial lines emanating from center down the funnel.",
+      "file_type": "rationale",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L82",
+      "id": "photon_sphere_studio_photon_sphere_3d_rationale_82",
+      "community": 1,
+      "norm_label": "create radial lines emanating from center down the funnel."
+    },
+    {
+      "label": "Calculate a 3D light ray trajectory from infinity.     b: impact parameter",
+      "file_type": "rationale",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L114",
+      "id": "photon_sphere_studio_photon_sphere_3d_rationale_114",
+      "community": 3,
+      "norm_label": "calculate a 3d light ray trajectory from infinity.     b: impact parameter"
+    },
+    {
+      "label": "Create a straight light ray for comparison (flat spacetime)",
+      "file_type": "rationale",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L225",
+      "id": "photon_sphere_studio_photon_sphere_3d_rationale_225",
+      "community": 4,
+      "norm_label": "create a straight light ray for comparison (flat spacetime)"
+    },
+    {
+      "label": "NumPy",
+      "file_type": "code",
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "requirements_numpy",
+      "community": 0,
+      "norm_label": "numpy"
+    },
+    {
+      "label": "Matplotlib",
+      "file_type": "code",
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "requirements_matplotlib",
+      "community": 0,
+      "norm_label": "matplotlib"
+    },
+    {
+      "label": "SciPy",
+      "file_type": "code",
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "requirements_scipy",
+      "community": 0,
+      "norm_label": "scipy"
+    },
+    {
+      "label": "Pillow",
+      "file_type": "code",
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "requirements_pillow",
+      "community": 0,
+      "norm_label": "pillow"
+    },
+    {
+      "label": "Photon Sphere Studio",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_photon_sphere_studio",
+      "community": 2,
+      "norm_label": "photon sphere studio"
+    },
+    {
+      "label": "Schwarzschild Metric",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_schwarzschild_metric",
+      "community": 0,
+      "norm_label": "schwarzschild metric"
+    },
+    {
+      "label": "Photon Geodesics",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_photon_geodesics",
+      "community": 0,
+      "norm_label": "photon geodesics"
+    },
+    {
+      "label": "GitHub Repository Setup Instructions",
+      "file_type": "document",
+      "source_file": "GITHUB_SETUP.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "github_setup_instructions",
+      "community": 2,
+      "norm_label": "github repository setup instructions"
+    },
+    {
+      "label": "photon_sphere_3d.gif",
+      "file_type": "image",
+      "source_file": "photon_sphere_3d.gif",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "photon_sphere_3d_gif",
+      "community": 5,
+      "norm_label": "photon_sphere_3d.gif"
+    },
+    {
+      "label": "photon_sphere_3d_full.gif",
+      "file_type": "image",
+      "source_file": "photon_sphere_3d_full.gif",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "photon_sphere_3d_full_gif",
+      "community": 2,
+      "norm_label": "photon_sphere_3d_full.gif"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_spacetime_warp_z",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_create_warped_cartesian_grid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_create_radial_grid_lines_funnel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_rk4_step",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_geodesic_rhs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_integrate_ray_3d",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L224",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_create_straight_ray_3d",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L424",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_update_view",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L451",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_play_animation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L454",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_pause_animation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L457",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_toggle_auto_rotate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L468",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L476",
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_studio_photon_sphere_3d_animate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "requirements_numpy"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "requirements_matplotlib"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "requirements_scipy"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "requirements_pillow"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "readme_schwarzschild_metric"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "readme_photon_geodesics"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_photon_sphere_studio",
+      "target": "photon_sphere_3d_py"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "photon_sphere_3d_py",
+      "target": "photon_sphere_3d_full_gif"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "photon_sphere_studio_photon_sphere_3d_create_warped_cartesian_grid",
+      "target": "photon_sphere_studio_photon_sphere_3d_spacetime_warp_z",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "photon_sphere_studio_photon_sphere_3d_create_radial_grid_lines_funnel",
+      "target": "photon_sphere_studio_photon_sphere_3d_spacetime_warp_z",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "photon_sphere_studio_photon_sphere_3d_rationale_34",
+      "target": "photon_sphere_studio_photon_sphere_3d_spacetime_warp_z",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "photon_sphere_studio_photon_sphere_3d_rationale_48",
+      "target": "photon_sphere_studio_photon_sphere_3d_create_warped_cartesian_grid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "photon_sphere_studio_photon_sphere_3d_rationale_82",
+      "target": "photon_sphere_studio_photon_sphere_3d_create_radial_grid_lines_funnel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "photon_sphere_studio_photon_sphere_3d_integrate_ray_3d",
+      "target": "photon_sphere_studio_photon_sphere_3d_rk4_step",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "photon_sphere_studio_photon_sphere_3d_rationale_114",
+      "target": "photon_sphere_studio_photon_sphere_3d_integrate_ray_3d",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "Photon_Sphere_3D.py",
+      "source_location": "L225",
+      "weight": 1.0,
+      "source": "photon_sphere_studio_photon_sphere_3d_rationale_225",
+      "target": "photon_sphere_studio_photon_sphere_3d_create_straight_ray_3d",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_photon_sphere_studio",
+      "target": "photon_sphere_3d_full_gif"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "GITHUB_SETUP.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "github_setup_instructions",
+      "target": "readme_photon_sphere_studio"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "9b32b5dfbb0f2a2b8f59c217d45d56d376196a9e"
+}
